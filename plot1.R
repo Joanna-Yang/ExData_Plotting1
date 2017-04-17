@@ -3,4 +3,5 @@ Dat <- read.csv.sql("./data/household_power_consumption.txt",sql="select * from 
 Dat$Date<-as.Date(Dat$Date,"%d/%m/%Y")
 Dat$DateTime<-as.POSIXct(paste(Dat$Date,Dat$Time))
 library(datasets)
+png(file="plot1.png",height = 480,width = 480)
 hist(Dat$Global_active_power,xlab="Global Active Power(kilowatts)",ylab="Frequency",main="Global Active Power",col="red")

@@ -3,6 +3,7 @@ Dat <- read.csv.sql("./data/household_power_consumption.txt",sql="select * from 
 Dat$Date<-as.Date(Dat$Date,"%d/%m/%Y")
 Dat$DateTime<-as.POSIXct(paste(Dat$Date,Dat$Time))
 library(datasets)
+png(file="plot4.png",height = 480,width = 480)
 par(mfrow=c(2,2))
 with(Dat,{
     plot(Global_active_power~DateTime,type="l",xlab="",ylab="Global Active Power")
