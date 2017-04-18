@@ -2,7 +2,6 @@ library(sqldf)
 Dat <- read.csv.sql("./data/household_power_consumption.txt",sql="select * from file where Date in ('1/2/2007','2/2/2007')",header=TRUE,sep=";")
 Dat$Date<-as.Date(Dat$Date,"%d/%m/%Y")
 Dat$DateTime<-as.POSIXct(paste(Dat$Date,Dat$Time))
-library(datasets)
 png(file="plot4.png",height = 480,width = 480)
 par(mfrow=c(2,2))
 with(Dat,{
